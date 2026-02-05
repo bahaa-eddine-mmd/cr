@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAHAA | Portfolio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #0a1a2f, #000);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 1.2s ease;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 4px;
+            animation: slideDown 1s ease;
+        }
+        .hero h2 {
+            margin-top: 10px;
+            font-weight: 300;
+            color: #7fd7ff;
+        }
+        .hero p {
+            max-width: 700px;
+            margin-top: 25px;
+            opacity: 0.9;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            padding: 14px 28px;
+            border-radius: 30px;
+            border: 1px solid #7fd7ff;
+            color: #7fd7ff;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 0 10px rgba(127,215,255,0.3);
+        }
+        .btn:hover {
+            background: #7fd7ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(127,215,255,0.9);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            padding: 80px 10%;
+            background: #050b14;
+        }
+        .portfolio h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .portfolio .intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            opacity: 0.85;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: linear-gradient(180deg, #0e1c2f, #050b14);
+            border-radius: 16px;
+            padding: 25px;
+            transition: 0.4s ease;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card:hover {
+            box-shadow: 0 0 40px rgba(127,215,255,0.35);
+            transform: translateY(-8px) scale(1.02);
+        }
+        .card h4 {
+            margin-bottom: 10px;
+            color: #7fd7ff;
+        }
+        .card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>BAHAA</h1>
+    <h2>Video Editor · Content Creator · 3D Artist</h2>
+    <p>
+        Welcome to my digital space. I craft cinematic visuals, engaging content,
+        and immersive 3D designs with a strong focus on storytelling, motion,
+        and detail. From dynamic edits to stylized 3D scenes, I turn ideas into
+        visuals that connect.
+    </p>
+    <div class="buttons">
+        <a class="btn" href="https://www.instagram.com/bahaaeddine_mmd?igsh=emw2OXNlcmI4cXBj">Instagram</a>
+        <a class="btn" href="https://www.facebook.com/share/14aofyqjCHB/">Facebook</a>
+        <a class="btn" href="https://drive.google.com/drive/folders/1MAVcEZrgDN7gsd9x1FqWtJiZA3dkCh-v?usp=sharing">View Work</a>
+    </div>
+</section>
+
+<section class="portfolio">
+    <h3>Selected Work</h3>
+    <p class="intro">
+        A curated collection of my best projects across video editing, content
+        creation, and 3D art.
+    </p>
+
+    <div class="grid">
+        <div class="card"><h4>Video Editing</h4><p>Cinematic edits, pacing, color grading.</p></div>
+        <div class="card"><h4>Content Creation</h4><p>Short-form, high-retention visuals.</p></div>
+        <div class="card"><h4>3D Art</h4><p>Modeling, lighting, animation & storytelling.</p></div>
+    </div>
+</section>
+
+
+<script>
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Work | Bahaa</title>
+    <style>
+        body { background:#050b14; color:white; font-family:Arial; padding:60px; }
+        h1 { color:#7fd7ff; text-align:center; margin-bottom:40px; }
+        .videos {
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+        .video {
+            background:#0e1c2f;
+            padding:20px;
+            border-radius:16px;
+            transition:0.3s;
+        }
+        .video:hover { box-shadow:0 0 25px rgba(127,215,255,0.4); transform:scale(1.03); }
+    </style>
+</head>
+<body>
+    <h1>Previous Work</h1>
+    <div class="videos">
+        <div class="video" onclick="window.open('https://drive.google.com/file/d/1I2RiQosLg9adHPPIAVA3N6eYQndJUBba/view?usp=sharing', '_blank')">Video Project 1</div>
+        <div class="video" onclick="window.open('https://drive.google.com/file/d/1XAT_YTVH69ceSgUFNknl0g68-QiIyznl/view?usp=sharing', '_blank')">Video Project 2</div>
+        <div class="video" onclick="window.open('https://drive.google.com/file/d/1EmoXZyT6JDF-6e5LmF8QA1b1--t41gyX/view?usp=sharing', '_blank')">3D Project</div>
+    </div>
+<footer>
+    © 2026 Bahaa — Crafted with precision & creativity
+</footer>
+
+</body>
+</html>
+
